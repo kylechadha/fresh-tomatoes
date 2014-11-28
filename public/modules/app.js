@@ -1,1 +1,5 @@
-angular.module('boilerplateApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'NerdService']);
+(function() {
+
+  angular.module('freshTomatoesApp', ['ngRoute', 'ngAnimate'])
+
+}());

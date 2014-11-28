@@ -5,8 +5,8 @@
     "bootstrap": "latest",
     "font-awesome": "latest",
     "animate.css": "latest",
-    "angular": "1.2.6",
-    "angular-route": "1.2.6",
-    "angular-animate": "1.2.6"
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-animate": "latest"
   }
 }

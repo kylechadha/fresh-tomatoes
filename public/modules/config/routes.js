@@ -1,17 +1,17 @@
-angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+(function() {
 
-  $routeProvider
+  angular.module('freshTomatoesApp')
+    .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
-    .when('/', {
-      templateUrl: 'views/home.html',
-      controller: 'MainController'
-    })
+      $routeProvider
+        .when('/', {
+          templateUrl: 'views/search.html',
+          controller: 'SearchController'
+        })
+        .otherwise( { redirectTo: '/' } );
 
-    .when('/nerds', {
-      templateUrl: 'views/nerd.html', 
-      controller: 'NerdController'
-    });
+      $locationProvider.html5Mode(true);
 
-  $locationProvider.html5Mode(true);
+    }]);
 
-}]);
+}());

@@ -9,26 +9,24 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="libraries/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="stylesheets/master.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/master.css">
 
 </head>
 
 <body ng-app="freshTomatoesApp">
 
+  <!-- Header -->
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Fresh Tomatoes</a>
+    </div>
+  </nav>
+
+  <!-- Angular Views -->
   <div class="container-fluid">
-
-    <!-- Header -->
-    <nav class="navbar navbar-default">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Fresh Tomatoes</a>
-      </div>
-    </nav>
-
-    <!-- Angular Views -->
     <div ng-view></div>
-    
   </div>
-
+    
 
   <!-- Angular Dependencies -->
   <script src="libraries/angular/angular.min.js"></script>

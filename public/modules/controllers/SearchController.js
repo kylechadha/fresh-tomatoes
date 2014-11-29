@@ -4,31 +4,42 @@
 
   angular.module('freshTomatoesApp').controller('SearchController', function($scope, $timeout, $log, searchFactory) {
 
-    $scope.searchResults = [];
+    $scope.resultsField = false;
     $scope.movies = [];
 
     $scope.searchRT = function() {
 
-      searchFactory.getMovies($scope.searchQuery, function(error, data) {
-        if (!error) {
-          // $scope.searchResults = data.movies;
+      if ($scope.searchQuery) {
 
-          for (var i = 0; i < 5; i++) {
+        $scope.searchResults = [];
+        searchFactory.getMovies($scope.searchQuery, function(error, data) {
+          if (!error) {
+            $scope.resultsField = true;
 
-            (function(j) {
-              // var counter = i;
-              $timeout(function() {
-                // $scope.searchResults.push('bananas');
-                $log.log(j);
-                $scope.searchResults.push(data.movies[j].title);
-              }, 100 * i);
-            })(i);
-
+            for (var i = 0; i < 10; i++) {
+              (function(j) {
+                $timeout(function() {
+                  $scope.searchResults.push(data.movies[j]);
+                }, 100 * i);
+              })(i);
+            }
           }
+        });
+
+        $scope.searchQuery = '';
+
+      }
+
+    }
+
+    $scope.movieLookup = function(movieId) {
+
+      searchFactory.getMovie(movieId, function(error, data) {
+        if (!error) {
+          $scope.movies.push(data);
         }
       });
 
-      $scope.searchQuery = '';
     }
 
   });

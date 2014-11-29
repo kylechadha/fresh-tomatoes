@@ -5,32 +5,29 @@
 
   <form role="form" ng-submit="searchRT()">
     <div class="form-group">
-      <input type="text" ng-model="searchQuery" class="form-control">
+      <input type="text" ng-model="searchQuery" ng-blur="searchRT()" class="form-control">
     </div>
   </form>
 
-  <h2>Cool, which one is it?</h2>
-  <table>
+  <h3 ng-show="resultsField">Cool, which one is it?</h3>
+  <table class="table">
     <tr class="toggle" ng-repeat="movie in searchResults">
-      <td>{{ movie }}</td>
+      <td><a href="" ng-click="movieLookup(movie.id)">{{ movie.title }} ({{ movie.year }})</a></td>
     </tr>
   </table>
- 
- <!-- <ul class="toggle" ng-repeat="movie in searchResults"> -->
-    <!-- <tr > -->
-      <!-- <li >{{ movie }}</li> -->
-    <!-- </tr> -->
-  <!-- </ul> -->
 
 </div>
 
 <div class="col-md-8">
 
-<!-- <table class="table">
+<table class="table">
   <tr>
-    <th></th>
+    <th>Info</th>
   </tr>
-</table> -->
+  <tr>
+    <td>{{ movies }}</td>
+  </tr>
+</table>
   
 </div>
 

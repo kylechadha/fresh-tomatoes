@@ -1,5 +1,5 @@
 (function() {
 
-  angular.module('freshTomatoesApp', ['ngRoute', 'ngAnimate'])
+  angular.module('freshTomatoesApp', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 
 }());

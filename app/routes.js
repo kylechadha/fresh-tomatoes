@@ -4,10 +4,9 @@ module.exports = function(app) {
 
   // Server Routes
   // ----------------------------------------------
-  app.get('/api/movie/', function(req, res) {
+  app.get('/api/movie/:url', function(req, res) {
 
-    var url = "http://google.com"
-    // var url = req.params.url;
+    var url = req.params.url;
     console.log(url);
 
     scraper(url, function(error, data) {
@@ -17,6 +16,7 @@ module.exports = function(app) {
       }
 
       console.log('Data being sent');
+      console.log(data);
       res.json(data);
 
     });
@@ -27,7 +27,7 @@ module.exports = function(app) {
   // ----------------------------------------------
   // route to handle all angular requests
   app.get('*', function(req, res) {
-    res.sendfile('./public/views/index.html'); // load our public/index.html file
+    res.sendfile('./public/views/index.html'); // load our index.html file
   });
 
 };

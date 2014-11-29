@@ -2,7 +2,7 @@
 
   // Fix to define function above, do inject, and then add controller to module
 
-  angular.module('freshTomatoesApp').controller('SearchController', function($scope, $timeout, $log, searchFactory) {
+  angular.module('freshTomatoesApp').controller('SearchController', function($scope, $timeout, $log, $sce, searchFactory) {
 
     $scope.resultsField = false;
     $scope.moviesField = false;
@@ -36,17 +36,18 @@
 
     $scope.addMovie = function(movie) {
 
+      movie.ratings.critics_score = movie.ratings.critics_score == -1 ? '--' : movie.ratings.critics_score + '%';
+      
       searchFactory.getMovie(movie.links.alternate, function(error, data) {
         if (!error) {
-
-          $log.log(data);
-
+          movie.critics_consensus = $sce.trustAsHtml(data.criticsConsensus);
+          movie.synopsis = data.movieSynopsis;
+          movie.image_url = data.imageURL
         }
       });
 
-
-      movie.ratings.critics_score = movie.ratings.critics_score == -1 ? '--' : movie.ratings.critics_score + '%';
       $scope.movies.push(movie);
+
 
       $scope.moviesField = true;
     }

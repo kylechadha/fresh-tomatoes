@@ -17,10 +17,9 @@
 
       getMovie: function(url, callback) {
 
-        $http.get('/api/movie/')
+        $http.get('/api/movie/' + encodeURIComponent(url))
           .success(function (data) {
             callback(null, data);
-            $log.log(data);
           })
           .error(function (error) {
             callback(error);

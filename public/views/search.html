@@ -12,7 +12,7 @@
   <h3 ng-show="resultsField">Cool, which one is it?</h3>
   <table class="table">
     <tr class="toggle" ng-repeat="movie in searchResults">
-      <td><a href="" ng-click="movieLookup(movie.id)">{{ movie.title }} ({{ movie.year }})</a></td>
+      <td><a href="" ng-click="addMovie(movie)">{{ movie.title }} ({{ movie.year }})</a></td>
     </tr>
   </table>
 
@@ -20,12 +20,18 @@
 
 <div class="col-md-8">
 
-<table class="table">
+<table class="table" ng-show="moviesField">
   <tr>
-    <th>Info</th>
+    <th>Tomatometer</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th></th>
   </tr>
-  <tr>
-    <td>{{ movies }}</td>
+  <tr ng-repeat="movie in movies">
+    <td>{{ movie.ratings.critics_score }}%</td>
+    <td>{{ movie.title }}</td>
+    <td>{{ movie.year }}</td>
+    <td class="center"><span class="glyphicon glyphicon-remove delete" ng-click="deleteMovie(movie)"></span></td>
   </tr>
 </table>
   

@@ -5,6 +5,7 @@
   angular.module('freshTomatoesApp').controller('SearchController', function($scope, $timeout, $log, searchFactory) {
 
     $scope.resultsField = false;
+    $scope.moviesField = false;
     $scope.movies = [];
 
     $scope.searchRT = function() {
@@ -15,8 +16,9 @@
         searchFactory.getMovies($scope.searchQuery, function(error, data) {
           if (!error) {
             $scope.resultsField = true;
+            var length = data.movies.length > 10 ? 10 : data.movies.length;
 
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < length; i++) {
               (function(j) {
                 $timeout(function() {
                   $scope.searchResults.push(data.movies[j]);
@@ -32,14 +34,13 @@
 
     }
 
-    $scope.movieLookup = function(movieId) {
+    $scope.addMovie = function(movie) {
+      $scope.movies.push(movie);
+      $scope.moviesField = true;
+    }
 
-      searchFactory.getMovie(movieId, function(error, data) {
-        if (!error) {
-          $scope.movies.push(data);
-        }
-      });
-
+    $scope.deleteMovie = function(movie) {
+      $scope.movies.splice($scope.movies.indexOf(movie), 1);
     }
 
   });

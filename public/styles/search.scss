@@ -1,0 +1,62 @@
+//
+// Search View SCSS File
+// ----------------------------------
+
+.search {
+
+  .search__input {
+    h1 {
+      font-size: 30px;
+    }
+
+    .search__input__results {
+      margin: 20px 0 0 20px;
+      a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        &:hover {
+          color: white;
+        }
+      }
+      td {
+        &:hover {
+          cursor: pointer;
+          color: black;
+          background-color: #f1f2f7;
+        }
+      }
+    }
+  }
+
+  .search__output {
+
+    // tr {
+    //   padding-bottom: 10px;
+    // }
+
+    // td {
+    //   background-color: skyblue;
+    //   div {
+    //     height: 150px;
+    //     overflow: hidden;
+    //   }
+    // }
+
+    .search__output__flex {
+      flex-wrap: nowrap;
+      border: 2px solid blue;
+      height: 150px;
+      overflow: hidden;
+      white-space: pre-wrap;
+      div {
+        border: 2px solid tomato;
+      }
+    }
+
+
+
+  }
+
+}

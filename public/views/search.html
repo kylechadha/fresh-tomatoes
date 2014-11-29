@@ -31,7 +31,7 @@
     <th></th>
   </tr>
   <tr ng-repeat="movie in movies">
-    <td><img src="{{ movie.image_url }}"></td>
+    <td><img src="{{ movie.image_url ? movie.image_url : movie.posters.detailed }}"></td>
     <td>{{ movie.ratings.critics_score }}</td>
     <td ng-bind-html="movie.critics_consensus"></td>
     <td>{{ movie.title }}</td>

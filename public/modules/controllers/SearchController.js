@@ -1,8 +1,6 @@
 (function() {
 
-  // Fix to define function above, do inject, and then add controller to module
-
-  angular.module('freshTomatoesApp').controller('SearchController', function($scope, $timeout, $log, $sce, searchFactory) {
+  var SearchController = function($scope, $timeout, $log, $sce, searchFactory) {
 
     $scope.resultsField = false;
     $scope.moviesField = false;
@@ -47,8 +45,6 @@
       });
 
       $scope.movies.push(movie);
-
-
       $scope.moviesField = true;
     }
 
@@ -56,6 +52,9 @@
       $scope.movies.splice($scope.movies.indexOf(movie), 1);
     }
 
-  });
+  };
+
+  SearchController.$inject = ['$scope', '$timeout', '$log', '$sce', 'searchFactory'];
+  angular.module('freshTomatoesApp').controller('SearchController', SearchController);
 
 }());

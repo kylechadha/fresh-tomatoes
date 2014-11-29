@@ -16,10 +16,7 @@ module.exports = function(url, callback) {
       var $ = cheerio.load(html);
       var data = {};
 
-      // console.log($('.critic_consensus').html());
-
-      // May need to check if this exists before, run risk of undefined -- check on 'Octopus' movie
-      data.criticsConsensus = $('.critic_consensus').html().trim();
+      data.criticsConsensus = $('.critic_consensus').html() ? $('.critic_consensus').html().trim() : 'No consensus';
       data.movieSynopsis = $($('#movieSynopsis').contents()[0]).text().trim() + $($('#movieSynopsis :not(a)').contents()[0]).text();
       data.imageURL = $('#poster_link img').attr('src');
 

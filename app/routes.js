@@ -7,18 +7,13 @@ module.exports = function(app) {
   app.get('/api/movie/:url', function(req, res) {
 
     var url = req.params.url;
-    console.log(url);
 
     scraper(url, function(error, data) {
-
       if (error) {
         res.send(error);
       }
 
-      console.log('Data being sent');
-      console.log(data);
       res.json(data);
-
     });
 
   });

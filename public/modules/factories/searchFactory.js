@@ -32,7 +32,6 @@
   };
 
   searchFactory.$inject = ['$http', '$log'];
-
   angular.module('freshTomatoesApp').factory('searchFactory', searchFactory);
 
 })();

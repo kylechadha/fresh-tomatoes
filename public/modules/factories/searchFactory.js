@@ -1,6 +1,6 @@
 (function() {
 
-  var searchFactory = function($http) {
+  var searchFactory = function($http, $log) {
 
     return {
 
@@ -10,16 +10,29 @@
           .success(function (data) {
             callback(null, data);
           })
-          .error(function (e) {
-            callback(e);
+          .error(function (error) {
+            callback(error);
           });
+      },
+
+      getMovie: function(url, callback) {
+
+        $http.get('/api/movie/')
+          .success(function (data) {
+            callback(null, data);
+            $log.log(data);
+          })
+          .error(function (error) {
+            callback(error);
+          })
+
       }
 
     }
 
   };
 
-  searchFactory.$inject = ['$http'];
+  searchFactory.$inject = ['$http', '$log'];
 
   angular.module('freshTomatoesApp').factory('searchFactory', searchFactory);
 

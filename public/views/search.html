@@ -1,5 +1,5 @@
 
-<div class="col-md-4">
+<div class="col-md-3">
 
   <h1>Search for some movies.</h1>
 
@@ -18,7 +18,7 @@
 
 </div>
 
-<div class="col-md-8">
+<div class="col-md-9">
 
 <table class="table" ng-show="moviesField">
   <tr>
@@ -28,7 +28,7 @@
     <th></th>
   </tr>
   <tr ng-repeat="movie in movies">
-    <td>{{ movie.ratings.critics_score }}%</td>
+    <td>{{ movie.ratings.critics_score }}</td>
     <td>{{ movie.title }}</td>
     <td>{{ movie.year }}</td>
     <td class="center"><span class="glyphicon glyphicon-remove delete" ng-click="deleteMovie(movie)"></span></td>

@@ -35,7 +35,19 @@
     }
 
     $scope.addMovie = function(movie) {
+
+      searchFactory.getMovie(movie.links.alternate, function(error, data) {
+        if (!error) {
+
+          $log.log(data);
+
+        }
+      });
+
+
+      movie.ratings.critics_score = movie.ratings.critics_score == -1 ? '--' : movie.ratings.critics_score + '%';
       $scope.movies.push(movie);
+
       $scope.moviesField = true;
     }
 

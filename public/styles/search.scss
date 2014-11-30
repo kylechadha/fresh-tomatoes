@@ -38,12 +38,13 @@
       overflow: hidden;
       margin-bottom: 15px;
       align-items: center;
-      background-color: rgb(230, 230, 230);
+      background-color: rgb(245, 245, 245);
       padding: 10px;
+      &:hover {
+        background-color: rgb(240, 240, 240);
+      }
 
-  // border: 2px solid tomato;
       div {
-  // border: 2px solid skyblue;
         text-align: center;
         vertical-align: middle;
       }
@@ -51,20 +52,26 @@
       .search__flex__image {
         height: 100%;
         background-size: cover;
-        width: 8%;
+        width: 10%;
       }
       .search__flex__score {
         font-size: 26px;
-        font-weight: 700;
+        font-weight: 600;
         width: 10%;
       }
       .search__flex__consensus {
+        font-style: italic;
+        font-weight: 300;
+        padding-left: 5px;
+        padding-right: 5px;
         width: 20%;
-        // align-self: flex-start;
       }
       .search__flex__title {
         font-size: 16px;
         width: 15%;
+        a {
+          text-decoration: none;
+        }
       }
       .search__flex__year {
         font-size: 16px;
@@ -73,6 +80,9 @@
       .search__flex__synopsis {
         align-self: flex-start;
         height: 140px;
+        padding-left: 20px;
+        padding-right: 10px;
+        font-weight: 300;
         overflow: hidden;
         width: 38%;
       }

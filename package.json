@@ -7,6 +7,7 @@
     "morgan": "~1.0.0",
     "body-parser": "~1.0.0",
     "method-override": "~1.0.0",
+    "bower": "latest",
     "request": "latest",
     "cheerio": "latest"
   },
@@ -17,5 +18,8 @@
     "grunt-nodemon": "~0.3.0",
     "grunt-sass": "~0.14.2",
     "open": "latest"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
   }
 }

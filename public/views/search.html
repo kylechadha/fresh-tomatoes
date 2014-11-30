@@ -25,7 +25,7 @@
   <!-- Right Column -->
   <div class="col-md-9 search__output">
 
-    <div class="search__flex flex" ng-show="moviesField" ng-repeat="movie in movies">
+    <div class="search__flex flex slide-animation" ng-show="moviesField" ng-repeat="movie in movies">
       <div class="search__flex__image" ng-style="{'background-image':'url(' + movie.image_url + ')'}"></div>
       <div class="search__flex__score">{{ movie.ratings.critics_score }}</div>
       <div class="search__flex__consensus" ng-bind-html="movie.critics_consensus"></div>

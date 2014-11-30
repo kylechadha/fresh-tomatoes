@@ -2,6 +2,9 @@
 // Animation SCSS File
 // ----------------------------------
 
+
+// Toggle Animation
+// -----------------------------------
 .toggle {
   -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -54,4 +57,37 @@
   &.ng-hide-remove.ng-hide-remove-active {
     opacity: 1;
   }
+}
+
+// Slide Animation
+// -----------------------------------
+.slide-animation.ng-enter, .slide-animation.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+    position:relative;
+    height: 1000px;
+}
+ 
+.slide-animation.ng-enter {
+  z-index:100;
+  left:100px;
+  opacity:0;
+}
+ 
+.slide-animation.ng-enter.ng-enter-active {
+  left:0;
+  opacity:1;
+}
+ 
+.slide-animation.ng-leave {
+  z-index:101;
+  opacity:1;
+  left:0;
+}
+ 
+.slide-animation.ng-leave.ng-leave-active {
+  left:-100px;
+  opacity:0;
 }

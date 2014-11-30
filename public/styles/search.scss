@@ -32,30 +32,58 @@
 
   .search__output {
 
-    // tr {
-    //   padding-bottom: 10px;
-    // }
-
-    // td {
-    //   background-color: skyblue;
-    //   div {
-    //     height: 150px;
-    //     overflow: hidden;
-    //   }
-    // }
-
-    .search__output__flex {
-      flex-wrap: nowrap;
-      border: 2px solid blue;
-      height: 150px;
+    .search__flex {
+      width: 100%;
+      height: 160px;
       overflow: hidden;
-      white-space: pre-wrap;
+      margin-bottom: 15px;
+      align-items: center;
+      background-color: rgb(230, 230, 230);
+      padding: 10px;
+
+  // border: 2px solid tomato;
       div {
-        border: 2px solid tomato;
+  // border: 2px solid skyblue;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .search__flex__image {
+        height: 100%;
+        background-size: cover;
+        width: 8%;
+      }
+      .search__flex__score {
+        font-size: 26px;
+        font-weight: 700;
+        width: 10%;
+      }
+      .search__flex__consensus {
+        width: 20%;
+        // align-self: flex-start;
+      }
+      .search__flex__title {
+        font-size: 16px;
+        width: 15%;
+      }
+      .search__flex__year {
+        font-size: 16px;
+        width: 5%;
+      }
+      .search__flex__synopsis {
+        align-self: flex-start;
+        height: 140px;
+        overflow: hidden;
+        width: 38%;
+      }
+      .search__flex__delete {
+        font-size: 18px;
+        width: 4%;
+        span {
+          cursor: pointer;
+        }
       }
     }
-
-
 
   }
 

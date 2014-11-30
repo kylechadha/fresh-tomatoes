@@ -78,7 +78,6 @@
         width: 5%;
       }
       .search__flex__synopsis {
-        align-self: flex-start;
         height: 140px;
         padding-left: 20px;
         padding-right: 10px;
@@ -91,6 +90,10 @@
         width: 4%;
         span {
           cursor: pointer;
+          color: #2a3542;
+          &:hover {
+            color: tomato;
+          }
         }
       }
     }

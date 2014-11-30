@@ -26,13 +26,33 @@
   <div class="col-md-9 search__output">
 
     <div class="search__flex flex slide-animation" ng-show="moviesField" ng-repeat="movie in movies">
+
       <div class="search__flex__image" ng-style="{'background-image':'url(' + movie.image_url + ')'}"></div>
       <div class="search__flex__score">{{ movie.ratings.critics_score }}</div>
-      <div class="search__flex__consensus" ng-bind-html="movie.critics_consensus">{{ movie.critics_consensus }}</div>
+
+      <div class="search__flex__consensus" ng-if="!scraperFinished && $last">
+        {{ movie.critics_consensus }}
+        <div ng-show="consensusLoading" class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+      </div>
+      <div class="search__flex__consensus" ng-if="scraperFinished || !$last" ng-bind-html="movie.critics_consensus">
+      </div>
+
       <div class="search__flex__title"><a href="{{ movie.links.alternate }}" target="_blank">{{ movie.title }}</a></div>
       <div class="search__flex__year">{{ movie.year }}</div>
-      <div class="search__flex__synopsis">{{ movie.synopsis }}</div>
+      <div class="search__flex__synopsis">
+        {{ movie.synopsis }}
+        <div ng-show="synopsisLoading && $last" class="spinner spinner--dropped">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+      </div>
       <div class="search__flex__delete"><span class="glyphicon glyphicon-remove delete" ng-click="deleteMovie(movie)"></span></div>
+
     </div>
 
   </div>

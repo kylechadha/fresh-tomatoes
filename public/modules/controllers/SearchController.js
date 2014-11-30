@@ -4,6 +4,9 @@
 
     $scope.resultsField = false;
     $scope.moviesField = false;
+    $scope.consensusLoading = true;
+    $scope.synopsisLoading = true;
+    $scope.scraperFinished = false;
     $scope.movies = [];
 
     $scope.searchRT = function() {
@@ -36,16 +39,24 @@
 
       movie.ratings.critics_score = movie.ratings.critics_score == -1 ? '--' : movie.ratings.critics_score + '%';
       movie.image_url = movie.posters.detailed;
+
+      $scope.consensusLoading = movie.critics_consensus == '' ? true : false;
+      $scope.synopsisLoading = movie.synopsis == '' ? true : false;
+      $scope.scraperFinished = false;
       
       searchFactory.getMovie(movie.links.alternate, function(error, data) {
         if (!error) {
           movie.critics_consensus = $sce.trustAsHtml(data.criticsConsensus);
           movie.synopsis = data.movieSynopsis;
           movie.image_url = data.imageURL
-          $scope.movies.push(movie);
+
+          $scope.consensusLoading = false;
+          $scope.synopsisLoading = false;
+          $scope.scraperFinished = true;
         }
       });
 
+      $scope.movies.push(movie);
       $scope.moviesField = true;
     }
 

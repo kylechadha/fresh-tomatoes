@@ -50,7 +50,6 @@
     font-size: 16px;
     width: 5%; }
   .search .search__output .search__flex .search__flex__synopsis {
-    align-self: flex-start;
     height: 140px;
     padding-left: 20px;
     padding-right: 10px;
@@ -61,7 +60,10 @@
     font-size: 18px;
     width: 4%; }
     .search .search__output .search__flex .search__flex__delete span {
-      cursor: pointer; }
+      cursor: pointer;
+      color: #2a3542; }
+      .search .search__output .search__flex .search__flex__delete span:hover {
+        color: tomato; }
 
 .toggle {
   -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -107,24 +109,60 @@
   transition: 0.5s linear all;
   position: relative;
   height: 1000px; }
-
 .slide-animation.ng-enter {
   z-index: 100;
   left: 100px;
   opacity: 0; }
-
 .slide-animation.ng-enter.ng-enter-active {
   left: 0;
   opacity: 1; }
-
 .slide-animation.ng-leave {
   z-index: 101;
   opacity: 1;
   left: 0; }
-
 .slide-animation.ng-leave.ng-leave-active {
   left: -100px;
   opacity: 0; }
+
+.spinner {
+  margin: 0 auto;
+  width: 70px;
+  text-align: center; }
+  .spinner.spinner--dropped {
+    margin-top: 60px; }
+  .spinner div {
+    width: 10px;
+    height: 10px;
+    background-color: #aaa;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+    animation: bouncedelay 1.4s infinite ease-in-out;
+    /* Prevent first frame from flickering when animation starts */
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; }
+  .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s; }
+  .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s; }
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+
+  40% {
+    -webkit-transform: scale(1); } }
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0); }
+
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1); } }
 
 html, body {
   font-family: 'Open Sans', sans-serif; }
